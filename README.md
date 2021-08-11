@@ -110,6 +110,7 @@ git clone https://github.com/someGenki/vue-lite-admin.git
 - 安装项目依赖
 
 ```sh
-cd vue-lite-admin/
+cd prometheus-web/
 npm install
+npm run dev
 ```
