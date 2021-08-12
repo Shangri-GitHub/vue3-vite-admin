@@ -45,6 +45,7 @@ export default {
     const noMoreElIcon = ref(false)
     const iconsSpliceLength = icons.length / 4
     const showElIcons = reactive(icons.splice(0, iconsSpliceLength))
+    console.log(document.getElementById('svgSpriteStats'));
     const child = document.getElementById('svgSpriteStats').children
     for (const c of child) {
       svgArr.push(c.id.replace('icon-', ''))

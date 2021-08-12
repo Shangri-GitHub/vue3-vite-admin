@@ -13,9 +13,7 @@
 
 不支持 IE:v::v::v::v::v:
 
-目前还只是个大三的学生，会的技术和开发经验也不多，项目刚刚起步，非常欢迎提出意见~:heart:
 
-**在线预览地址**： http://fanyibar.top/vite/index.html 👈 戳它戳他
 
 ## 技术
 
@@ -103,8 +101,8 @@
 
 - 获取项目代码
 
-```sh
-git clone https://github.com/someGenki/vue-lite-admin.git
+```sh http://fanyibar.top/vite/index.html 👈 戳它戳他
+git clone git@code.aliyun.com:Shangri_la/prometheus-web.git
 ```
 
 - 安装项目依赖

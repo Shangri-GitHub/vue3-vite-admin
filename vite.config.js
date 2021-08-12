@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 // mockjs插件使用说明 https://github.com/anncwb/vite-plugin-mock/blob/main/README.zh_CN.md
 // 首次运行错误可输入: node .\node_modules\vite-plugin-mock\node_modules\esbuild\install.js
-import { viteMockServe } from 'vite-plugin-mock'
+// 加载svg图片
 import { svgLoader } from './src/plugin/svg-loader'
 
 const { dependencies, devDependencies, name, version } = pkg
@@ -31,16 +31,6 @@ export default ({ command }) => {
       vue(),
       vueJsx({}),
       svgLoader('/src/icons/'),
-      viteMockServe({
-        mockPath: 'mock',
-        localEnabled: command === 'serve',
-        prodEnabled: command !== 'serve' && true,
-        //  这样可以控制关闭mock的时候不让mock打包到最终代码内  默认注入为项目根目录下src/main.{ts,js}
-        injectCode: `
-          import { setupProdMockServer } from '/mock/mockProdServer';
-          setupProdMockServer();
-        `,
-      }),
     ],
 
     resolve: {

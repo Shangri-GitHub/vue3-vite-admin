@@ -21,7 +21,7 @@ import SidebarLogo from './SidebarLogo.vue'
 import SidebarItem from './SidebarItem.vue'
 import useLayout from '../useLayout.js'
 import { toRaw, toRefs } from 'vue'
-
+import constantRoutes from '../../../router/constant-routes'
 /**
  * 根据权限以及路由表动态生成侧边菜单栏 以及配置菜单栏相关样式
  */
@@ -31,7 +31,12 @@ export default {
   setup() {
     const { state, sidebarWidth } = useLayout()
     const { showLogo, unfoldSidebar } = toRefs(state)
-    const routers = toRaw(userState.addRoutes)
+    // todo 路由菜单
+    // const routers = toRaw(userState.addRoutes)
+    const routers = constantRoutes;
+
+    console.log(constantRoutes);
+
     const elMenuStyle = {
       text: '#dcdcdc',
       background: '#304156',

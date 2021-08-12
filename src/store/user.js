@@ -50,8 +50,8 @@ function generateRoutes() {
     router.addRoute(route)
   })
   state.addRoutes = constantRoutes.concat(accessedRoutes)
-  // console.log(router.getRoutes())
-  // console.log(state.addRoutes)
+  console.log(router.getRoutes())
+  console.log(state.addRoutes)
 }
 
 function hasPermission(roles, route) {
