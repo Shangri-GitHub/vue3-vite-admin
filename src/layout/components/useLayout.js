@@ -7,7 +7,7 @@ const state = reactive({
   sUnfoldWidth: getSetting('sUnfoldWidth', 'int', 210),
   unfoldSidebar: getSetting('unfoldSidebar', 'bool', true),
   fixedHeader: getSetting('fixedHeader', 'bool', false),
-  showTabBar: getSetting('showTabBar', 'bool', true),
+  showTabBar: getSetting('showTabBar', 'bool', false),
   showLogo: getSetting('showLogo', 'bool', true),
   sCollapseWidth: 64, // sidebar折叠后宽度
   showSettings: false, // 是否显示设置面板
