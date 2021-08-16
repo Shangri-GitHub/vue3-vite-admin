@@ -1,16 +1,11 @@
 <template>
-    <div>
-        添加用户
-
-    </div>
+  <div>添加用户</div>
 </template>
 
 <script>
-    export default {
-        name: "menu"
-    }
+export default {
+  name: 'menu',
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

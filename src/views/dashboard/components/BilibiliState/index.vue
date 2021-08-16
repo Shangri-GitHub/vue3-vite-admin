@@ -12,7 +12,7 @@
     </div>
     <span class="avatar-wrapper">
       <img src="~@/assets/dio.jpg" alt="" />
-      <a target="_blank" href="https://space.bilibili.com/2232379">禾几元</a>
+      <!--      <a target="_blank" href="https://space.bilibili.com/2232379"></a>-->
     </span>
     <div class="state-row">
       <div>

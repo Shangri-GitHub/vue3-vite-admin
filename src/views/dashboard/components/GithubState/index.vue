@@ -76,8 +76,12 @@
         </g>
       </svg>
     </div>
-    <a class="github-link" target="_blank" href="https://github.com/someGenki">
-      github.com/someGenki
+    <a
+      class="github-link"
+      target="_blank"
+      href="http://fanyibar.top/vite/index.html"
+    >
+      http://fanyibar.top/vite/index.html
     </a>
   </div>
 </template>

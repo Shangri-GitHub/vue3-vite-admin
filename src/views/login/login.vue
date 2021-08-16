@@ -50,7 +50,7 @@ import { reactive, ref, onMounted } from 'vue'
 import router from '/src/router'
 import { login as userLogin } from '../../store/user'
 import { setToken, removeToken } from '../../utils/storage'
-
+import { ElMessage } from 'element-plus'
 export default {
   name: 'login',
   setup() {
@@ -97,13 +97,18 @@ export default {
           form.codeId = uuid.value
           // 表单校验通过，发起ajax请求然后保存必要的token、roles最后路由跳转
           login(form).then((res) => {
-            setToken(res.data.token)
-            // getCurrentUser().then((res) => {
-            //
-            // })
-            router.push({
-              path: router.currentRoute.value.query.redirect || '/',
-            })
+            if (res.code == 0) {
+              setToken(res.data.token)
+              // getCurrentUser().then((res) => {
+              //
+              // })
+              router.push({
+                path: router.currentRoute.value.query.redirect || '/',
+              })
+            } else {
+              // refreshCode();
+              ElMessage.error(res.msg)
+            }
           })
         } else {
           console.log('login fail because ', valid)

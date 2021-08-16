@@ -27,11 +27,7 @@ export default ({ command }) => {
       brotliSize: false, // 禁用 brotli 压缩大小报告,以提高大型项目的构建性能。
     },
 
-    plugins: [
-      vue(),
-      vueJsx({}),
-      svgLoader('/src/icons/'),
-    ],
+    plugins: [vue(), vueJsx({}), svgLoader('/src/icons/')],
 
     resolve: {
       alias: {

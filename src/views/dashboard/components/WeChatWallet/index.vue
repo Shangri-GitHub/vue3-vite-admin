@@ -1,19 +1,18 @@
 <template>
-  <div class="wechat-wallet" @click="showQrCode = !showQrCode">
+  <div class="wechat-wallet" @click="">
     <div v-if="!showQrCode">
       <p class="icon-wrapper"><i class="el-icon-s-finance" /></p>
       <p class="wechat-wallet-title">钱包</p>
-      <p class="wechat-wallet-money">￥137.63</p>
     </div>
-    <transition name="show-qrcode">
-      <div v-if="showQrCode">
-        <img
-          style="margin: auto; height: 150px; display: block"
-          src="./wechat-receiving.jpg"
-          alt="收款码"
-        />
-      </div>
-    </transition>
+    <!--    <transition name="show-qrcode">-->
+    <!--      <div v-if="showQrCode">-->
+    <!--        <img-->
+    <!--          style="margin: auto; height: 150px; display: block"-->
+    <!--          src=""-->
+    <!--          alt="收款码"-->
+    <!--        />-->
+    <!--      </div>-->
+    <!--    </transition>-->
   </div>
 </template>
 

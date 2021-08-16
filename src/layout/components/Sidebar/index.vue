@@ -33,9 +33,9 @@ export default {
     const { showLogo, unfoldSidebar } = toRefs(state)
     // todo 路由菜单
     // const routers = toRaw(userState.addRoutes)
-    const routers = constantRoutes;
+    const routers = constantRoutes
 
-    console.log(constantRoutes);
+    console.log(constantRoutes)
 
     const elMenuStyle = {
       text: '#dcdcdc',
