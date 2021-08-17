@@ -1,4 +1,5 @@
 <template>
+  <p>{{ $t("message.hello") }}</p>
   <div>ddddd</div>
 </template>
 

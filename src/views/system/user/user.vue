@@ -1,5 +1,4 @@
 <template>
-    <p>{{ $t("message.hello") }}</p>
     <!--按钮+查询条件-->
     <div class="query">
         <div style="display: flex">
