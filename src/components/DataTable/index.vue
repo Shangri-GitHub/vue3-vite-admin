@@ -10,14 +10,22 @@
                 :row-key="rowKey"
                 :expand-row-keys="expands"
                 style="width: 100%"
+                @selection-change="handleSelectionChange"
                 :header-cell-style="{background:'#f5f7fa',color:'#002640'}"
         >
+            <!--多选-->
+            <el-table-column
+                    v-if="selection.eventName"
+                    type="selection"
+                    width="46">
+            </el-table-column>
             <!--表格是否排序-->
             <el-table-column
                     type="index"
                     :label="indexLabel"
                     v-if="indexNo"
             ></el-table-column>
+
 
             <template v-for="col in columns">
                 <!-- 格式化各种日期 - 名称自定义 type设置为formatTime 时生效-->
@@ -27,6 +35,7 @@
                         :align="col.align ? col.align : 'center'"
                         :prop="col.prop"
                         :label="col.label"
+                        show-overflow-tooltip
                         min-width="170"
                         :width="col.width"
                 ></el-table-column>
@@ -99,7 +108,7 @@
 </template>
 
 <script>
-    import {ref, reactive, onMounted} from 'vue'
+    import {ref, toRaw, reactive, onMounted, watch} from 'vue'
 
     export default {
         name: 'index',
@@ -115,6 +124,10 @@
                 align: 'center',
                 fixed: false,
             },
+            selection: {
+                eventName: '',          // 多选功能
+                data: []                 // 默认多选的数据
+            },
             indexNo: {type: Boolean, default: false}, // 是否展示序号
             tableBorder: {type: Boolean, default: false}, // 是否带有纵向边框
             rowKey: {type: String},
@@ -124,6 +137,7 @@
         },
         setup(props, {emit}) {
             const currentPage = ref(1)
+            const dataTable = ref(null)
             const tableConfig = reactive({
                 buttonWidth: 210
             })
@@ -135,6 +149,15 @@
                     tableConfig.buttonWidth = 174;
                 } else {
 
+                }
+            })
+            // 默认多选选中
+            watch(() => props.selection.data, (newValue, oldValue) => {
+                const selectionData = toRaw(newValue);
+                if (selectionData.length > 0) {
+                    selectionData.forEach(ele => {
+                        dataTable.value.toggleRowSelection(ele);
+                    })
                 }
             })
 
@@ -159,13 +182,20 @@
                 emit(props.getTableData.eventName, props.getTableData.page)
             }
 
+            // 多选
+            function handleSelectionChange(val) {
+                emit(props.selection.eventName, val)
+            }
+
             return {
+                dataTable,
                 tableConfig,
                 currentPage,
                 buttonHandler,
                 handleCommand,
                 handleSizeChange,
                 handleCurrentChange,
+                handleSelectionChange,
             }
         },
     }

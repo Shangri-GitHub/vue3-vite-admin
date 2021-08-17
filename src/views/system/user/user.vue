@@ -28,6 +28,7 @@
     <data-table
             v-bind="tableOption"
             @edit="edit"
+            @selection="selection"
             @getTableData="getTableData"
             @test="test"
     ></data-table>
@@ -44,6 +45,8 @@
         setup() {
             onMounted(() => {
                 getTableData(tableOption.getTableData.page)
+
+
             })
             // 查询框
             const query = reactive({
@@ -152,7 +155,17 @@
                         ],
                     },
                 ],
+                // 多选功能
+                selection: {
+                    eventName: 'selection',
+                    data: []
+                }
+
             })
+
+            function selection(val) {
+                console.log(val);
+            }
 
             function edit(scope) {
                 console.log(scope)
@@ -167,6 +180,7 @@
                 queryByCondition(param).then(res => {
                     tableOption.getTableData.total = res.data.total
                     tableOption.getTableData.data = res.data.data
+                    tableOption.getTableData.data = res.data.data
                 })
             }
 
@@ -176,6 +190,7 @@
                 test,
                 getTableData,
                 tableOption,
+                selection,
             }
         },
     }
