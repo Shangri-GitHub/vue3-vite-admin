@@ -58,11 +58,9 @@ export default {
 .sidebar-container {
   display: flex;
   flex-direction: column;
-  position: fixed;
-  overflow: hidden;
-  height: 100%;
+  overflow: auto;
   z-index: 100;
-
+  height:100vh ;
   .el-menu {
     flex-grow: 1;
     border-right: none;

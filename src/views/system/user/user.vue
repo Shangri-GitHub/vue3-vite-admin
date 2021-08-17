@@ -67,11 +67,13 @@
                     {
                         label: '登录名',
                         prop: 'username',
+                        fixed: true,
                         width: '180',
                         sort: true,
                     },
                     {
                         label: '昵称',
+                        fixed: true,
                         prop: 'nickName',
                         sort: true,
                     },
@@ -83,6 +85,7 @@
                     {
                         label: '邮箱地址',
                         prop: 'email',
+                        width: "140",
                         sort: true,
                     },
                     {

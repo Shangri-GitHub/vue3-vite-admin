@@ -21,11 +21,12 @@
             <template v-for="col in columns">
                 <!-- 格式化各种日期 - 名称自定义 type设置为formatTime 时生效-->
                 <el-table-column
-                        v-if="col.type === 'formatTime'"
+                        v-if="col.type === 'formatTime' ||col.prop ===  'createTime' ||col.prop ===  'updateTime'"
                         :sortable="col.sort"
                         :align="col.align ? col.align : 'center'"
                         :prop="col.prop"
                         :label="col.label"
+                        min-width="170"
                         :width="col.width"
                 ></el-table-column>
                 <el-table-column
@@ -57,28 +58,17 @@
                                 {{ item.label }}
                             </el-button>
                             <!--更多按钮 handleCommand()-->
-                            <el-dropdown
-                                    @command="handleCommand"
-                                    v-if="item.hasOwnProperty('dropdownMenu')"
-                            >
-                                <el-button
-                                        :type="item.type"
-                                        :size="item.size ? item.size : 'mini'"
-                                >
+                            <el-dropdown @command="handleCommand" v-if="item.hasOwnProperty('dropdownMenu')">
+                                <el-button :type="item.type" :size="item.size ? item.size : 'mini'">
                                     {{ item.label }}
                                     <i class="el-icon-arrow-down el-icon--right"></i>
                                 </el-button>
                                 <template #dropdown>
                                     <el-dropdown-menu>
                                         <el-dropdown-item
-                                                :command="{
-                      eventName: dropItem.eventName,
-                      scope: scope.row,
-                    }"
+                                                :command="{eventName: dropItem.eventName,scope: scope.row,}"
                                                 v-for="(dropItem, index) in item.dropdownMenu"
-                                                :disabled="
-                      dropItem.disabled && dropItem.disabled(scope.row)
-                    "
+                                                :disabled="dropItem.disabled && dropItem.disabled(scope.row) "
                                                 :key="index"
                                         >
                                             {{ dropItem.label }}
@@ -105,7 +95,6 @@
                 :total="getTableData.total"
         ></el-pagination>
     </div>
-
 </template>
 
 <script>

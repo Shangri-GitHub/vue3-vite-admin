@@ -17,11 +17,11 @@
         </div>
         <div class="settings-panel-body">
           <el-divider><span style="font-size: 16px">界面显示</span></el-divider>
-          <setting-item
-            v-model="fixedHeader"
-            type="el-switch"
-            desc="固定头部"
-          />
+<!--          <setting-item-->
+<!--            v-model="fixedHeader"-->
+<!--            type="el-switch"-->
+<!--            desc="固定头部"-->
+<!--          />-->
           <setting-item v-model="showLogo" type="el-switch" desc="侧边栏Logo" />
           <setting-item
             v-model="showTabBar"

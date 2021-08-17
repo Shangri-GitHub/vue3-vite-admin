@@ -38,7 +38,8 @@ export default {
   width: 100%;
   padding: 15px;
   background-color: #f1f2f3;
-  min-height: calc(100vh - #{$navbar-height + $tabBar-height});
+  height: calc(100vh - #{$navbar-height + $tabBar-height});
+  overflow: auto;
 }
 
 /*
