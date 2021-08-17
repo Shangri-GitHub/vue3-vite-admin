@@ -12,7 +12,7 @@ const state = reactive({
   sCollapseWidth: 64, // sidebar折叠后宽度
   showSettings: false, // 是否显示设置面板
   isMobile: document.body.clientWidth < 768,
-  themeColor: '#02BF6F',
+  themeColor: '#409eff',
   breadcrumbList: [],
   visitedViews: [],
   cachedViews: [],
