@@ -100,7 +100,7 @@
 - 获取项目代码
 
 ```sh http://fanyibar.top/vite/index.html 👈 戳它戳他
-git clone git@code.aliyun.com:Shangri_la/prometheus-web.git
+git clone  git@github.com:Shangri-GitHub/vue3-vite-admin.git
 ```
 
 - 安装项目依赖
